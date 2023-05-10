@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server":"json-server --watch db.json -p 5000",
+    "server": "json-server --watch db.json -p 5000",
     "start-app": "concurrently \"npm run dev\" \"npm run server\""
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
+    "concurrently": "^8.0.1",
     "next": "13.4.0",
     "postcss": "8.4.23",
     "react": "18.2.0",
