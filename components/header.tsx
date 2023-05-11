@@ -1,6 +1,6 @@
 import { FaHamburger } from 'react-icons/Fa';
 import Link from 'next/link';
-const Header = () => {
+const Header:React.FC = () => {
 	return (
 		<header>
 			<div>

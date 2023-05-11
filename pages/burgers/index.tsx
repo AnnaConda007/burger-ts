@@ -1,7 +1,20 @@
 import Link from 'next/link';
 import styles from '../../styles/Burgers.module.css';
 import Image from 'next/image';
-export const getStaticProps = async () => {
+import { GetStaticProps } from 'next';
+
+
+type Burger = {
+	id:string,
+	desc:string,
+	image:string,
+	name:string
+}
+
+type AllBurgers={
+burgers:Burger[]
+}
+export const getStaticProps:GetStaticProps<AllBurgers> = async () => {
 	const res = await fetch('http://localhost:5000/items');
 	const data = await res.json();
 	return {
@@ -11,7 +24,7 @@ export const getStaticProps = async () => {
 	};
 };
 
-const AllBurgers = ({ burgers }) => {
+const AllBurgers:React.FC<AllBurgers> = ({ burgers }) => {
 	return (
 		<div>
 			<h1>Все бургеры</h1>

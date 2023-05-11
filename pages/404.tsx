@@ -2,9 +2,9 @@ const { default: Link } = require('next/link');
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const notFoundPage = () => {
-	const router = useRouter();
-	useEffect(() => {
+const notFoundPage: React.FC = () => {
+	const router = useRouter(); /* тип уже задан next */
+	useEffect(() => { /* тип useEffect уже задан next */
 		setTimeout(() => {
 			router.push('/');
 		}, 2000);
