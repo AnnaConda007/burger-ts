@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from '../../styles/Burgers.module.css';
 import Image from 'next/image';
+
 export const getStaticProps = async () => {
 	const res = await fetch('http://localhost:5000/items');
 	const data = await res.json();
