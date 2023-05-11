@@ -1,9 +1,9 @@
-import styles from '../styles/Home.module.css'; /*в файле Home.Module.css нет экспорта, почему тут нет ошибок при импорте styles, ведь такое имя нигде не объявлено?  И в _app.js импорт без названия экспортируемого файла/объекта*/
+import styles from '../styles/Home.module.css';  
 import classNames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
-export default function Home() {
+ const Home:React.FC =()=>{
 	return (
 		<>
 			<Head>
@@ -29,3 +29,4 @@ export default function Home() {
 		</>
 	);
 }
+ export default Home

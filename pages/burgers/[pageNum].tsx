@@ -1,22 +1,38 @@
 import styles from '../../styles/Burgers.module.css';
 import Image from 'next/image';
-export const getStaticPaths = async () => {
+import { GetStaticPaths } from 'next'; 
+import { GetStaticProps } from 'next';
+import { GetStaticPropsContext } from 'next';
+type Burger ={
+name:string,
+image:string,
+desc: string,
+price:number,
+id:string
+}
+ 
+
+type Params = {
+	pageNum:string
+}
+
+ 
+export const getStaticPaths:GetStaticPaths<Params> = async () => {
+	//фактически этот метод возвращает массив объектов Params. Но именно в этом методе это не нужно явно указывать.
 	const res = await fetch('http://localhost:5000/items');
 	const data = await res.json();
-
-	const paths = data.map((burger) => {
+	const paths = data.map((burger:Burger)  => {   
 		return {
 			params: { pageNum: burger.id },
 		};
 	});
-
 	return {
 		paths,
 		fallback: false,
 	}; 
 };
-
-export const getStaticProps = async (context) => {
+  
+export const getStaticProps = async (context: GetStaticPropsContext<Params>) => {//GetStaticPropsContext<Params> - указывает , что из context, нужен только объект типа Params
 	const id = context.params.pageNum;
 	const res = await fetch(`http://localhost:5000/items/${id}`);
 	const data = await res.json();
