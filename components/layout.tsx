@@ -7,7 +7,7 @@ const Layout:React.FC = ({ children }:{children :JSX.Element}) => {/*
 	return (
 		<div className='content'>
 			<Header />
-			{children}S
+			{children}
 			<Footer />
 		</div>
 	);
